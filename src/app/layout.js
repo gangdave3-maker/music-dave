@@ -17,16 +17,16 @@ export const metadata = {
 
   title: {
     default:
-      "Movie Rent - Graduation Project | Online Movie Rental System by Pichaiyut Sirianantawong",
-    template: "%s | Movie Rent", // Automatically turns "Batman" into "Batman | MovieRent"
+      "Online Music Player - Graduation Project | Online Music Player by Pichaiyut Sirianantawong",
+    template: "%s | Music Station", // Automatically turns "Batman" into "Batman | MovieRent"
   },
 
   description:
-    "Movie Rent is a Graduation Project developed by Pichaiyut Sirianantawong. A full-stack online movie rental web application built with Next.js featuring authentication, admin management, and responsive design.",
+    "Music Station is a Graduation Project developed by Pichaiyut Sirianantawong. A full-stack online music player web application built with Next.js featuring authentication, registration system, and responsive design.",
 
   keywords: [
     "Graduation Project",
-    "Movie Rental System",
+    "Music Station",
     "Next.js Project",
     "Web Application",
     "Full Stack Developer",
@@ -35,6 +35,7 @@ export const metadata = {
 
   authors: [{ name: "Pichaiyut Sirianantawong" }],
 
+  // For Google SEO
   // verification: {
   //   google: "REk6xtiXewFp7ne3ODKwuVQPDI2aKzVo5VgPU072zaU",
   // },
@@ -44,20 +45,20 @@ export const metadata = {
 // In Next.js App Router, you usually define it inside the metadata object.
   openGraph: {
     title:
-      "Movie Rent - Online Movie Rental System | Graduation Project",
+      "Music Player - Online Music Station | Graduation Project",
     description:
-      "A full-stack movie rental web application built with Next.js as a graduation project.",
+      "A full-stack music player web application built with Next.js as a graduation project.",
     url: "https://dave-dvd.vercel.app/",
-    siteName: "Movie Rent",
+    siteName: "Music Station",
     locale: "en_US",
     type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Movie Rent - Graduation Project",
+    title: "Music Station - Graduation Project",
     description:
-      "Full-stack movie rental system built with Next.js.",
+      "Full-stack music player built with Next.js.",
   },
 };
 

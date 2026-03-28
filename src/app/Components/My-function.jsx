@@ -62,3 +62,39 @@ export function clientRefresh() {
     // Equivalent to hitting F5 / Cmd+R
     window.location.reload();
 }
+
+export async function MatchedClient(email) {
+    const res = await fetch('/api/email-match',
+      {
+        method: 'POST', // Usually POST for sending data
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(email), // Wrap in an object and stringify
+      }
+    )
+  if (!res.ok){
+    const errorData = await res.json().catch(() => ({}));
+    throw new Error(errorData.message || 'Failed to fetch match');
+  }
+  return res.json()
+}
+
+export async function sendEmail(theCustomer) {
+    const res = await fetch('/api/send-email',
+      {
+        method: 'POST', // Usually POST for sending data
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(theCustomer), // Wrap in an object and stringify
+      }
+    )
+
+  if (!res.ok){
+    const errorData = await res.json().catch(() => ({}));
+    throw new Error(errorData.message || 'Failed to fetch match');
+  }
+        
+  return res.json()
+}
