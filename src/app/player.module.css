@@ -1,0 +1,27 @@
+/* player.module.css */
+
+/* ใช้ :global ครอบเพื่อให้ Next.js ไม่เปลี่ยนชื่อ Class 
+ใช้ :global เพื่อรักษาชื่อ Class เดิม เพื่อให้ CSS ในไฟล์ module สามารถเข้าถึง Class ของ Library ภายนอกได้ คุณต้องครอบด้วย :global
+Scope Control: การใช้ :global ภายในไฟล์ .module.css จะทำให้ Style นี้มีผลเฉพาะตอนที่ Component นั้นถูก Load ขึ้นมา (ช่วยลดปัญหา Style ตีกันในหน้าอื่นๆ)
+*/
+:global(.rhap_container) {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  color: #fff;
+  border-radius: 12px;
+}
+
+:global(.rhap_progress-filled) {
+  background-color: white !important;
+}
+
+:global(.rhap_volume-bar-filled) {
+  background-color: white !important;
+}
+
+:global(.rhap_main-controls-button) {
+  color: white !important;
+}
+
+:global(.rhap_main-controls-button:hover) {
+  color: #FFED2D !important;
+}

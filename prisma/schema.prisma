@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model album {
+  album_id  Int     @id
+  title     String  @db.VarChar(160)
+  artist_id Int
+  artist    artist  @relation(fields: [artist_id], references: [artist_id], onDelete: NoAction, onUpdate: NoAction)
+  track     track[]
+
+  @@index([artist_id])
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model artist {
+  artist_id Int     @id
+  name      String? @db.VarChar(120)
+  album     album[]
+}
+
+model customer {
+  customer_id    Int       @id @default(autoincrement())
+  first_name     String    @db.VarChar(40)
+  last_name      String    @db.VarChar(20)
+  company        String?   @db.VarChar(80)
+  address        String?   @db.VarChar(70)
+  postal_code    String?   @db.VarChar(10)
+  phone          String?   @db.VarChar(24)
+  email          String    @unique @db.VarChar(60)
+  password       String?
+  invoice        invoice[]
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model genre {
+  genre_id Int     @id
+  name     String? @db.VarChar(120)
+  track    track[]
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model track {
+  track_id       Int              @id
+  name           String           @db.VarChar(200)
+  album_id       Int?
+  media_type_id  Int
+  genre_id       Int?
+  composer       String?          @db.VarChar(220)
+  milliseconds   Int
+  bytes          Int?
+  unit_price     Decimal          @db.Decimal(10, 2)
+  invoice_line   invoice_line[]
+  playlist_track playlist_track[]
+  album          album?           @relation(fields: [album_id], references: [album_id], onDelete: NoAction, onUpdate: NoAction)
+  genre          genre?           @relation(fields: [genre_id], references: [genre_id], onDelete: NoAction, onUpdate: NoAction)
+  media_type     media_type       @relation(fields: [media_type_id], references: [media_type_id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([album_id])
+  @@index([genre_id])
+  @@index([media_type_id])
+}
