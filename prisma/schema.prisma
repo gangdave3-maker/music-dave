@@ -34,7 +34,6 @@ model customer {
   phone          String?   @db.VarChar(24)
   email          String    @unique @db.VarChar(60)
   password       String?
-  invoice        invoice[]
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
@@ -55,11 +54,8 @@ model track {
   milliseconds   Int
   bytes          Int?
   unit_price     Decimal          @db.Decimal(10, 2)
-  invoice_line   invoice_line[]
-  playlist_track playlist_track[]
   album          album?           @relation(fields: [album_id], references: [album_id], onDelete: NoAction, onUpdate: NoAction)
   genre          genre?           @relation(fields: [genre_id], references: [genre_id], onDelete: NoAction, onUpdate: NoAction)
-  media_type     media_type       @relation(fields: [media_type_id], references: [media_type_id], onDelete: NoAction, onUpdate: NoAction)
 
   @@index([album_id])
   @@index([genre_id])
