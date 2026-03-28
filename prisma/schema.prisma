@@ -18,6 +18,7 @@ model album {
   track     track[]
 
   @@index([artist_id])
+  @@schema("music_dave") // 👈 เพิ่มบรรทัดนี้
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
@@ -25,6 +26,7 @@ model artist {
   artist_id Int     @id
   name      String? @db.VarChar(120)
   album     album[]
+  @@schema("music_dave") // 👈 เพิ่มบรรทัดนี้
 }
 
 model customer {
@@ -37,6 +39,7 @@ model customer {
   phone          String?   @db.VarChar(24)
   email          String    @unique @db.VarChar(60)
   password       String?
+  @@schema("music_dave") // 👈 เพิ่มบรรทัดนี้
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
@@ -44,6 +47,7 @@ model genre {
   genre_id Int     @id
   name     String? @db.VarChar(120)
   track    track[]
+  @@schema("music_dave") // 👈 เพิ่มบรรทัดนี้
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
@@ -63,4 +67,5 @@ model track {
   @@index([album_id])
   @@index([genre_id])
   @@index([media_type_id])
+  @@schema("music_dave") // 👈 เพิ่มบรรทัดนี้
 }
