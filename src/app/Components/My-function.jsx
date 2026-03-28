@@ -1,19 +1,19 @@
 import React from 'react'
 
 export async function getCred() {
-    const res = await fetch('http://localhost:3000/api/get-cred')
+    const res = await fetch('/api/get-cred')
   if (!res.ok) throw new Error('Failed to fetch')
   return res.json()
 }
 
 export async function getTrack() {
-    const res = await fetch('http://localhost:3000/api/get-track')
+    const res = await fetch('/api/get-track')
   if (!res.ok) throw new Error('Failed to fetch')
   return res.json()
 }
 
 export async function getAlbum() {
-    const res = await fetch('http://localhost:3000/api/get-album')
+    const res = await fetch('/api/get-album')
   if (!res.ok) throw new Error('Failed to fetch')
   return res.json()
 }
