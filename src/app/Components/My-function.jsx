@@ -98,3 +98,19 @@ export async function sendEmail(theCustomer) {
         
   return res.json()
 }
+
+export async function updatePassword(cred) {
+    const res = await fetch('/api/update-password',{
+      method:'POST',
+      headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(cred),
+    })
+
+  // 1. Parse the JSON body FIRST to get the data inside
+  const data = await res.json();
+
+  if (!res.ok) throw new Error(data.message||'Failed to fetch')
+  return data
+}
