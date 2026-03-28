@@ -13,7 +13,7 @@ const inter = Inter({
 
 export const metadata = {
   // 🔁 replace with real domain
-  metadataBase: new URL("https://dave-dvd.vercel.app/"),
+  metadataBase: new URL("https://musicstation.vercel.app/"),
 
   title: {
     default:
@@ -48,7 +48,7 @@ export const metadata = {
       "Music Player - Online Music Station | Graduation Project",
     description:
       "A full-stack music player web application built with Next.js as a graduation project.",
-    url: "https://dave-dvd.vercel.app/",
+    url: "https://musicstation.vercel.app/",
     siteName: "Music Station",
     locale: "en_US",
     type: "website",
