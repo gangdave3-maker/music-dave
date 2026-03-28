@@ -5,7 +5,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
   schemas  = ["music_dave"] // 👈 เช็คตัวสะกด (-) หรือ (_) ให้ตรงกับใน Supabase
 }
 
