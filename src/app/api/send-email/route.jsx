@@ -20,7 +20,7 @@ export async function POST(request) {
       from: "gangdave3@gmail.com",
       to: theEmail,
       subject: "Reset Password",
-      text: `Please click the following link to reset your password -- https://dave-dvd.vercel.app/ResetPassword/${customerID}`,
+      text: `Please click the following link to reset your password -- https://musicstation.vercel.app/ResetPassword/${customerID}`,
     };
 
     let info = await transporter.sendMail(mailOption);
