@@ -7,6 +7,7 @@ import Image from 'next/image'
 import MySlick from '../Components/MySlick'
 import { ArrowBigUp } from 'lucide-react'; // Or any icon library
 import Link from 'next/link'
+import path from "path"
 
 function Hall() {
   const [mounted, setMounted] = useState(false)
@@ -57,7 +58,8 @@ function Hall() {
     indexOfFirstAlbum = indexOfLastAlbum - itemsPerPage
   }
    
-  const currentAlbum = allAlbums.slice(indexOfFirstAlbum, indexOfLastAlbum)
+  const albumName = allAlbums.slice(indexOfFirstAlbum, indexOfLastAlbum)
+  const currentAlbum = path.parse(albumName).name
 
   var totalPages = 1
   if(Math.ceil(allAlbums.length / itemsPerPage)<=1){
@@ -81,7 +83,7 @@ function Hall() {
 
   useEffect(()=>{goTop()},[currentPage])
 
-  //useEffect(()=>{console.log(currentAlbum)},[currentAlbum])
+  useEffect(()=>{console.log(currentAlbum)},[currentAlbum])
 
     // Toggle Popup with specific ID
   // const openPopup = (track_id) => setSelectedTrackId(track_id)
