@@ -58,8 +58,9 @@ function Hall() {
     indexOfFirstAlbum = indexOfLastAlbum - itemsPerPage
   }
    
-  const albumName = allAlbums.slice(indexOfFirstAlbum, indexOfLastAlbum)
-  const currentAlbum = path.parse(albumName).name
+  const rawAlbums = allAlbums.slice(indexOfFirstAlbum, indexOfLastAlbum)
+  // สร้างตัวแปรใหม่ที่เก็บเฉพาะ "ชื่อ" ที่ตัดนามสกุลแล้ว
+  const currentAlbum = rawAlbums.map(albumPath => path.parse(albumPath).name);
 
   var totalPages = 1
   if(Math.ceil(allAlbums.length / itemsPerPage)<=1){
@@ -83,7 +84,7 @@ function Hall() {
 
   useEffect(()=>{goTop()},[currentPage])
 
-  useEffect(()=>{console.log(currentAlbum)},[currentAlbum])
+  //useEffect(()=>{console.log(currentAlbum)},[currentAlbum])
 
     // Toggle Popup with specific ID
   // const openPopup = (track_id) => setSelectedTrackId(track_id)
