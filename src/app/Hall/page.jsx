@@ -126,7 +126,7 @@ function Hall() {
                 <div className="product-item bg-black flex flex-col h-full">
 
                   <div className="relative w-full aspect-square flex items-center justify-center overflow-hidden">
-                    <Image src={`${BUCKET_URL}/Albums/${item}`} 
+                    <Image src={`${BUCKET_URL}/Albums/${item}.png`} 
                       alt='Live Cover' 
                       fill
                       className='object-cover'
