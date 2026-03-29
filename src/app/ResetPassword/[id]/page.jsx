@@ -6,8 +6,6 @@ import { updatePassword } from '@/app/Components/My-function'
 import { Eye,EyeClosed } from 'lucide-react'
 
 const ResetPassword=({params})=>{
-  const testparam = use(params)
-  console.log(testparam)
 
   const customerID = use(params).id
   const [toggleIcon,setToggleIcon]=useState({
@@ -69,35 +67,46 @@ const ResetPassword=({params})=>{
   return (
     <div className='container bg-white/85 min-h-screen'>
 
-      <h1 className='underline text-center py-4!'>Reset Password</h1>
+      <h1 className='underline text-center pt-8! pb-2! md:pb-3! md:pt-4'>Reset Password</h1>
+
       <div className='flex justify-center items-center'>
-        <div className='text-nowrap my-2'>
-            <div className='flex items-center'>
-                <label htmlFor="Email">New Password: </label>
-                <input 
-                  id='Email' type={toggleIcon.iconNew?"text":"password"} className='form-control ml-7.5! w-70!'
-                  value={thePass.newPassword} onChange={(e)=>{
-                    setThePass(prev=>({
-                      ...prev,newPassword:e.target.value
-                    }))
-                  }}
-                />
-                <div className='w-5'></div>
-                <span onClick={()=>toggleButton("iconNew")}>{toggleIcon.iconNew?<EyeClosed/>:<Eye/>}</span>
+
+        <div className='my-2'>
+          
+            <div className='flex flex-col md:flex-row md:justify-between items-center gap-2'>
+                <label htmlFor="Email" className='text-nowrap'>New Password: </label>
+                <div className='flex flex-row items-center gap-2'>
+                  <input 
+                    id='Email' type={toggleIcon.iconNew?"text":"password"} className='form-control w-full'
+                    value={thePass.newPassword} onChange={(e)=>{
+                      setThePass(prev=>({
+                        ...prev,newPassword:e.target.value
+                      }))
+                    }}
+                  />
+                  
+                  <span onClick={()=>toggleButton("iconNew")}>{toggleIcon.iconNew?<EyeClosed/>:<Eye/>}</span>
+                </div>
+                
             </div>
-            <div className='flex items-center my-2'>
-                <label htmlFor="Email">Confirm Password: </label>
-                <input 
-                  id='Email' type={toggleIcon.iconConfirm?"text":"password"} className='form-control ml-1! w-70!'
-                  value={thePass.confirmPassword} onChange={(e)=>{
-                    setThePass(prev=>({
-                      ...prev,confirmPassword:e.target.value
-                    }))
-                  }}
-                />
-                <div className='w-5'></div>
-                <span onClick={()=>toggleButton("iconConfirm")}>{toggleIcon.iconConfirm?<EyeClosed/>:<Eye/>}</span>
+
+            <div className='flex flex-col md:flex-row md:justify-between items-center gap-2 my-2'>
+                <label htmlFor="Email" className='text-nowrap'>Confirm Password: </label>
+                <div className='flex flex-row items-center gap-2'>
+                  <input 
+                    id='Email' type={toggleIcon.iconConfirm?"text":"password"} className='form-control w-full'
+                    value={thePass.confirmPassword} onChange={(e)=>{
+                      setThePass(prev=>({
+                        ...prev,confirmPassword:e.target.value
+                      }))
+                    }}
+                  />
+                  
+                  <span onClick={()=>toggleButton("iconConfirm")}>{toggleIcon.iconConfirm?<EyeClosed/>:<Eye/>}</span>
+                </div>
+                
             </div>
+
             <div className='flex justify-center items-center my-5!'>
               <button className='btn btn-danger glow font-bold! text-xl! mr-2!' 
               >
@@ -110,6 +119,7 @@ const ResetPassword=({params})=>{
               </button>
             </div>
         </div>
+
       </div>
 
     </div>

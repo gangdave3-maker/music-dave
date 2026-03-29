@@ -21,17 +21,17 @@ function ForgetPassword() {
 
   return (
     <div className='container bg-white/85 min-h-screen'>
-
-      <h1 className='underline text-center py-4!'>Forget Password</h1>
+      
+      <h1 className='underline text-center pt-8! pb-2! md:pb-3! md:pt-4'>Forget Password</h1>
       <div className='flex justify-center items-center'>
-        <div className='text-nowrap my-2'>
-            <div className='flex items-center'>
-                <label htmlFor="Email">Email: </label>
+        <div className='my-2'>
+            <div className='flex flex-col md:flex-row items-center gap-2'>
+                <label htmlFor="Email">Email:</label>
                 <input 
-                  id='Email' type="email" className='form-control ml-1! w-70!'
+                  id='Email' type="email" className='form-control w-full'
                   value={email} onChange={(e)=>setEmail(e.target.value)}
                 />
-                <button className='btn btn-outline-primary glow font-bold! text-xl! ml-2!'
+                <button className='btn btn-outline-primary glow font-bold! text-xl! text-nowrap'
                   onClick={()=>sendingEmail()}
                 >
                   Send Link
